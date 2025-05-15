@@ -4,7 +4,7 @@ source venv/bin/activate
 deactivate
 
 pip install selenium pytest pytest-html
-
+pytest tests/test_insider.py --browser=chrome
 
 TO-DO
 load page - add timeout. 
