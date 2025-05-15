@@ -16,3 +16,10 @@ def pytest_addoption(parser):
     parser.addoption(
         "--browser", action="store", default="chrome", help="Choose browser: chrome or firefox"
     )
+    parser.addoption(
+        "--api-key", action="store", help="API key for authenticated requests"
+    )
+
+@pytest.fixture
+def api_key(request):
+    return request.config.getoption("--api-key")

@@ -3,13 +3,16 @@ python3 -m venv venv
 source venv/bin/activate
 deactivate
 
-pip install selenium pytest pytest-html
+Setup:
+pip install -r requirements.txt
+
+To Run Tests:
 pytest tests/test_insider.py --browser=chrome
+pytest tests/test_pet_api.py --api-key=special-key
+locust -f tests/locustfile.py --host=https://www.n11.com
 
 TO-DO
-load page - add timeout. 
 allure report
 waits too much to complete all
 gitignore
-pycache?
 static scrolll! look for it.

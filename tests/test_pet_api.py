@@ -81,12 +81,12 @@ def test_put_pet_invalid_json():
     data = response.json()
     assert data["message"] == "something bad happened" 
 
-def test_delete_pet_success():
+def test_delete_pet_success(api_key):
     response = requests.delete(
         f"{BASE_URL}/5",
         headers={
             "accept": "application/json",
-            "api_key": "special-key"
+            "api_key": api_key
         }
     )
     assert response.status_code == 200  
@@ -94,12 +94,12 @@ def test_delete_pet_success():
     assert data["message"] == "5"  
     
 
-def test_delete_pet_not_found():
+def test_delete_pet_not_found(api_key):
     response = requests.delete(
         f"{BASE_URL}/5466",
         headers={
             "accept": "application/json",
-            "api_key": "special-key"
+            "api_key": api_key
         }
     )
     assert response.status_code == 404
